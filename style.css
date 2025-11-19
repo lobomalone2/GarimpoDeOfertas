@@ -1,0 +1,198 @@
+/* --- RESET E VARIÁVEIS --- */
+:root {
+    --primary-gold: #d4af37;
+    --secondary-gold: #f9d976;
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --text-light: #ffffff;
+    --text-gray: #b0b0b0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Poppins', sans-serif;
+    
+    /* Cor de fundo de segurança (caso a imagem não carregue) */
+    background-color: var(--bg-dark);
+    
+    /* AQUI ESTÁ O TRUQUE: */
+    background-image: 
+        /* 1. Camada escura (Overlay) com 80% de opacidade para dar leitura */
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+        /* 2. A sua imagem de fundo */
+        url('imgs/Cópia\ de\ Clique\ no\ link\ abaixo\ \(1\).png'); 
+
+    /* Faz a imagem cobrir a tela toda sem distorcer */
+    background-size: cover;
+    
+    /* Centraliza a imagem */
+    background-position: center;
+    
+    /* Efeito Parallax: A imagem fica fixa enquanto o conteúdo rola por cima */
+    background-attachment: fixed;
+
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* --- CABEÇALHO (BANNER) CORRIGIDO --- */
+.top-banner {
+    width: 100%;
+    background: linear-gradient(90deg, #b8860b, var(--primary-gold), #b8860b);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 1px solid #ffd700;
+    
+    /* FLEXBOX: Alinha [Logo] [Texto] [Logo] na mesma linha */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px; /* Espaço entre as imagens e o texto */
+}
+
+.top-banner p {
+    color: #000;
+    font-weight: 800;
+    font-size: 0.85rem; /* Tamanho seguro para mobile */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Estilo das mini-logos no cabeçalho */
+.banner-icon {
+    width: 32px;  /* Tamanho pequeno fixo */
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    object-fit: cover;
+    background-color: #000;
+    display: block; /* Garante que a imagem respeite o tamanho */
+}
+
+/* --- CONTAINER --- */
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* --- LOGO PRINCIPAL (Estilo normalizado) --- */
+.logo-area {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.logo-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-gold);
+    object-fit: cover;
+    background-color: #000;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* --- TIPOGRAFIA --- */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary-gold), var(--secondary-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: var(--primary-gold);
+    font-weight: 600;
+}
+
+/* --- BOTÃO CTA --- */
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, var(--primary-gold), #b8860b);
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+
+/* --- MARCAS --- */
+.brands-section {
+    background-color: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.brands-title {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.brand-logo {
+    max-height: 35px;
+    width: auto;
+    max-width: 100px;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
